@@ -8,7 +8,7 @@
         }"
         @click="getCurrentPage(pageNumber)"
     >
-      <a class="page-link" href="#">{{pageNumber}}</a>
+      <button class="page-link m-1 rounded"> {{ pageNumber }} </button>
     </li>
   </ul>
 </template>
