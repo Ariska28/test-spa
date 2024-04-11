@@ -2,11 +2,11 @@
   <ul class="pagination flex-wrap justify-content-center my-3">
     <li v-for="pageNumber in totalPages" 
         class="page-item"
+        :key="pageNumber"
         :class="{
           'active': page === pageNumber
         }"
-        :key="pageNumber"
-        @click="changePage(pageNumber)"
+        @click="getCurrentPage(pageNumber)"
     >
       <a class="page-link" href="#">{{pageNumber}}</a>
     </li>
@@ -15,10 +15,16 @@
 
 <script>
   export default {
-    name: 'my-input',
+    name: 'my-pagination',
     props: {
-      modelValue: [String],
+      totalPages: Number,
+      page: Number,
     },
+    methods: {
+      getCurrentPage(page) {
+        this.$emit('getCurrentPage', page)
+      },
+    }
   }
 </script>
 
